@@ -1,0 +1,35 @@
+<ul class="list-unstyled">
+    
+  <% coordinates.each do |coordinate| %>
+  
+  <li>
+    
+    <table class="table table-bordered">
+     <tr>    
+        <th><%=link_to 'name',coordinate %></th>
+        <td>
+          <%= coordinate.user.name %>
+        </td>
+      </tr>
+    
+      <tr>    
+        <th><%= link_to '画像',coordinate %></th>
+        <td>
+          <%= image_tag coordinate.img.url %>
+        </td>
+      </tr>
+    
+      <tr>    
+        <th><%= link_to 'content',coordinate %></th>
+        <td>
+          <%= coordinate.content %>
+        </td>
+      </tr>
+    
+    </table>
+  </li>
+  <% end %>    
+    
+    
+    
+</ul>

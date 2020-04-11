@@ -1,0 +1,23 @@
+<% if @users.any? %>
+
+<h1>Users</h1>
+
+<% @users.each do |user| %>
+
+<ul class='list-group'>
+  
+  <li class='list-group-item'>
+    
+    <%= user.name %>&amp;<%= link_to 'プロフィール',user_path(user) %>
+    
+    
+  </li>
+  
+</ul>
+
+<% end %>
+
+<%= paginate @users %>
+
+<% end %>
+

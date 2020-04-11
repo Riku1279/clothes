@@ -1,0 +1,23 @@
+<h1>詳細</h1>
+
+<table class="table table-bordered">
+     
+    
+      <tr>    
+        <th>image</th>
+        <td>
+          <%= image_tag @coordinate.img.url %>
+        </td>
+      </tr>
+    
+      <tr>    
+        <th><%= link_to 'content',coordinate_path %></th>
+        <td>
+          <%= @coordinate.content %>
+        </td>
+      </tr>
+    
+    </table>
+    
+<%= link_to "Delete",@coordinate,method: :delete,data: { confirm: "You sure?" }, class: 'btn btn-danger btn-sm' %>
+<%= link_to "Edit", edit_coordinate_path(@coordinate),class: 'btn btn-success btn-sm' %>

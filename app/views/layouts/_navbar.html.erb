@@ -2,11 +2,12 @@
   <a class="mr-auto navbar-brand" href="/">Coordinates</a>
    <ul class="navbar-nav">
     <% if logged_in? %>
+      <li class='nav-item'><%= link_to 'post',new_coordinate_path, class:'nav-link'%></li>
       <li class='nav-item'><%= link_to 'Users', users_path, class:'nav-link' %></li>
       <li class='nav-item dropdown'>
          <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">my page</a>
          <ul class='dropdown-menu'>
-            <li class="dropdown-item">my post</li>
+            <li class="dropdown-item"><%= link_to 'my post',user_path(current_user) %></li>
             <li class="dropdown-item">favorites</li>
             <li class="dropdown-item"><%= link_to'logout',logout_path,method: :delete %></li>
          </ul>

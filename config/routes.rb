@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   get 'signup', to: 'users#new'
   resources :users, only: [:index, :show, :new, :create]
 
-
+  resources :coordinates, only:[:show,:new,:create,:destroy,:edit,:update]
 
 
 

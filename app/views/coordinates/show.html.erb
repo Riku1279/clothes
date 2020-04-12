@@ -1,7 +1,12 @@
 <h1>詳細</h1>
 
 <table class="table table-bordered">
-     
+     <tr>    
+        <th>name</th>
+        <td>
+          <%= @coordinate.user.name %>
+        </td>
+      </tr>
     
       <tr>    
         <th>image</th>
@@ -11,16 +16,16 @@
       </tr>
     
       <tr>    
-        <th><%= link_to 'content',coordinate_path %></th>
+        <th>content</th>
         <td>
           <%= @coordinate.content %>
         </td>
       </tr>
     
     </table>
-    
-<%= link_to "Delete",@coordinate,method: :delete,data: { confirm: "You sure?" }, class: 'btn btn-danger btn-sm' %>
 <% if current_user == @coordinate.user %>
+<%= link_to "Delete",@coordinate,method: :delete,data: { confirm: "You sure?" }, class: 'btn btn-danger btn-sm' %>
+
  
   <%= link_to "Edit", edit_coordinate_path(@coordinate),class: 'btn btn-success btn-sm' %>
 <% end %> 

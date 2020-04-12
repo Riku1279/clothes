@@ -4,6 +4,7 @@
   
   <li>
      <li>
+       <%=link_to '詳細',coordinate,class:'btn btn-success btn-sm' %>
       <% if current_user == coordinate.user %>
         <%= link_to'削除',coordinate, method: :delete,data: {confirm:'削除してよろしいですか？'},class:'btn btn-danger btn-sm' %>
       <% end %>
@@ -11,21 +12,16 @@
     </li>  
     <table class="table table-bordered">
      <tr>    
-        <th><%=link_to 'name',coordinate %></th>
+        <th>name</th>
         <td>
           <%= coordinate.user.name %>
         </td>
       </tr>
     
-      <tr>    
-        <th><%= link_to '画像',coordinate %></th>
-        <td>
-          <%= image_tag coordinate.img.url %>
-        </td>
-      </tr>
+      
     
       <tr>    
-        <th><%= link_to 'content',coordinate %></th>
+        <th>content</th>
         <td>
           <%= coordinate.content %>
         </td>

@@ -2,7 +2,7 @@
     
   <% coordinates.each do |coordinate| %>
   
-  <li>
+  
      <li>
        <%=link_to '詳細',coordinate,class:'btn btn-success btn-sm' %>
       <% if current_user == coordinate.user %>
@@ -10,6 +10,7 @@
       <% end %>
         <%= render 'favorites/favorite_button', coordinate:coordinate %>
     </li>  
+  <li>
     <table class="table table-bordered">
      <tr>    
         <th>name</th>

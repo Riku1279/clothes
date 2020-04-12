@@ -11,7 +11,7 @@
       <tr>    
         <th>image</th>
         <td>
-          <%= image_tag @coordinate.img.url %>
+          <%= image_tag @coordinate.img.url if @coordinate.img?%>
         </td>
       </tr>
     

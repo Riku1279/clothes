@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_10_110803) do
+ActiveRecord::Schema.define(version: 2020_04_11_115100) do
 
   create_table "coordinates", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "content"
@@ -19,6 +19,16 @@ ActiveRecord::Schema.define(version: 2020_04_10_110803) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_coordinates_on_user_id"
+  end
+
+  create_table "favorites", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "coordinate_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["coordinate_id"], name: "index_favorites_on_coordinate_id"
+    t.index ["user_id", "coordinate_id"], name: "index_favorites_on_user_id_and_coordinate_id", unique: true
+    t.index ["user_id"], name: "index_favorites_on_user_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -30,4 +40,6 @@ ActiveRecord::Schema.define(version: 2020_04_10_110803) do
   end
 
   add_foreign_key "coordinates", "users"
+  add_foreign_key "favorites", "coordinates"
+  add_foreign_key "favorites", "users"
 end

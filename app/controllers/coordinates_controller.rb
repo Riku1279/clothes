@@ -1,5 +1,5 @@
 class CoordinatesController < ApplicationController
-  before_action :correct_user, only: [:destroy]
+  before_action :correct_user, only: [:destroy,:edit,:update]
    before_action :require_user_logged_in
    
   def show

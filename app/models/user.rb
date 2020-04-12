@@ -7,4 +7,25 @@ class User < ApplicationRecord
    has_secure_password
    
    has_many :coordinates
-end
+   has_many :favorites
+   has_many :likes, through: :favorites, source: :coordinate
+
+
+  def fav(coordinate)
+    self.favorites.find_or_create_by(coordinate_id: coordinate.id)
+  end
+  
+  def unfav(coordinate)
+    favorite = self.favorites.find_by(coordinate_id: coordinate.id)
+    favorite.destroy if favorite
+  end
+  
+  def liking?(coordinate)
+    self.likes.include?(coordinate)
+  end  
+  
+  def feed_coordinates
+    Coordinate.all
+  end  
+
+end    

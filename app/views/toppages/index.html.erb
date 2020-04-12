@@ -1,7 +1,14 @@
 <% if logged_in? %>
-  <div class= 'text-center'>users coordinate</div>
+  <h1 class='text-center text-warning'><i class="fas fa-tshirt"></i>users coordinate</h1>
+  
+  <%= render 'coordinates/coordinates', coordinates: @coordinates %>
+  
 <% else %>  
-  <div class='text-center'>
-    <h1>Lets be fashionable!</h1>
+  <div class=' text-center '>
+    <h1 class= 'text-warning '>Lets be fashionable!</h1>
+ 
+    <%= link_to 'Sign up ', signup_path, class: 'btn btn-lg btn-primary' %>
+    <h2>or</h2>
+    <%= link_to 'Login',login_path,class: 'btn btn-lg btn-success' %>
   </div>
 <% end %>

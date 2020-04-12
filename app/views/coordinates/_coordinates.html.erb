@@ -3,7 +3,12 @@
   <% coordinates.each do |coordinate| %>
   
   <li>
-    
+     <li>
+      <% if current_user == coordinate.user %>
+        <%= link_to'削除',coordinate, method: :delete,data: {confirm:'削除してよろしいですか？'},class:'btn btn-danger btn-sm' %>
+      <% end %>
+        <%= render 'favorites/favorite_button', coordinate:coordinate %>
+    </li>  
     <table class="table table-bordered">
      <tr>    
         <th><%=link_to 'name',coordinate %></th>
@@ -27,6 +32,7 @@
       </tr>
     
     </table>
+    
   </li>
   <% end %>    
     

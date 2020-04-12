@@ -1,22 +1,23 @@
 <div class="row">
-  <div class="col-6">
+  <div class="col-6 offset-sm-3">
 
 <%= form_with(model: coordinate,local:true) do |f| %>
 
-  <div class="form-group">
+  <div class="form-group pt-3 pb-3">
     <%= f.label :content, '詳細' %>
 
     <%= f.text_field :content, class: 'form-control' %>
   </div>
   
-  <div class="form-group">
+  <div class="form-group pb-3 ">
   
     <%= f.label :img, '画像' %>
-  
+  <span class="btn btn-info">
     <%= f.file_field :img %>
+    </span>
   </div>
   
-  <%= f.submit '投稿', class: 'btn btn-success' %>
+  <%= f.submit '投稿', class: 'btn btn-success ' %>
 <% end %>
 
 </div>

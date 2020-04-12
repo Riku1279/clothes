@@ -9,7 +9,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     if logged_in?
-      @coordinates = current_user.coordinates.order(id: :desc).page(params[:page])
+      @coordinates = @user.coordinates.order(id: :desc).page(params[:page])
     end
   end
 
@@ -27,7 +27,13 @@ class UsersController < ApplicationController
       flash.now[:danger] = 'ユーザ登録失敗しました'
       render :new
     end
-  end
+  end  
+  
+  def likes
+    @user = User.find(params[:id])
+    @likes = @user.likes.page(params[:page])
+  end  
+    
 end
 
 private
